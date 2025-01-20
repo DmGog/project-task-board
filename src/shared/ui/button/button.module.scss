@@ -1,0 +1,47 @@
+.button {
+  cursor: pointer;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.onlyIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  & svg {
+    fill: var(--light-overlay-80);
+  }
+}
+
+.filled {
+  background-color: var(--subtle-white-8);
+
+  &:hover {
+    background-color: var(--light-overlay-20);
+
+    & svg {
+      fill: var(--primary-blue);
+    }
+  }
+}
+
+.filled.onlyIcon {
+  border-radius: 50%;
+}
+
+.outlined {
+  &:hover {
+    color: var(--primary-blue);
+
+    & svg {
+      fill: var(--primary-blue);
+    }
+  }
+}
