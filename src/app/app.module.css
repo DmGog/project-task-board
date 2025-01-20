@@ -1,5 +1,13 @@
 .root {
-  max-width: 1920px;
-  margin: 0 auto;
-  text-align: center;
+    width: 100%;
+    max-width: 1920px;
+    height: 100vh;
+    margin:  auto;
+
+    text-align: center;
+
+    background-image: url("@/shared/assets/images/image-fon.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
