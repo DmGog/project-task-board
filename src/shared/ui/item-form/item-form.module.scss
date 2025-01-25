@@ -1,0 +1,31 @@
+.itemForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 100%;
+  max-width: 398px;
+  padding: 16px;
+
+  background-color: var(--light-overlay-10);
+  border-radius: 4px;
+}
+
+.textFieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  width: 100%;
+}
+
+.btnWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 100%;
+}

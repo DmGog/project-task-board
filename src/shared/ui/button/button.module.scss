@@ -12,9 +12,6 @@
   align-items: center;
   justify-content: center;
 
-  width: 40px;
-  height: 40px;
-
   & svg {
     fill: var(--light-overlay-80);
   }
@@ -30,9 +27,15 @@
       fill: var(--primary-blue);
     }
   }
+
+  &:active {
+    background-color: var(--subtle-white-8);
+  }
 }
 
 .filled.onlyIcon {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 
@@ -42,6 +45,14 @@
 
     & svg {
       fill: var(--primary-blue);
+    }
+  }
+
+  &:active {
+    color: var(--color-text-bold);
+
+    & svg {
+      fill: var(--light-overlay-80);
     }
   }
 }

@@ -1,0 +1,39 @@
+.card {
+  width: 100%;
+  max-width: 430px;
+  padding: 32px 16px;
+
+  background-color: var(--background-black-70);
+  border-radius: 4px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.titleWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+
+  .title {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-bold);
+    line-height: 117%;
+    color: var(--color-text-bold);
+  }
+}
+
+.containerCardChild {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+}

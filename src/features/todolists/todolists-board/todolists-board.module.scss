@@ -1,0 +1,18 @@
+.cardWrapper {
+  width: 100%;
+  max-width: 1280px;
+  background-color: var(--light-overlay-80);
+}
+
+.gridStyle {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 25%;
+
+  text-align: center;
+
+  background-color: var(--light-overlay-30);
+}

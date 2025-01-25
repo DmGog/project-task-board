@@ -1,21 +1,12 @@
-import s from './app.module.css';
-import { TextField } from '@/shared';
+import s from './app.module.scss';
+import { Routing } from '@/app/routing';
+import { Header } from '@/shared';
 
 function App() {
   return (
     <div className={s.root}>
-      <div
-        style={{
-          paddingTop: '50px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-        }}
-      >
-        <TextField searchIcon type="search" label="поиск" />
-        <TextField type="date" label="дата" />
-        <TextField type="text" label="текст" />
-      </div>
+      <Header />
+      <Routing />
     </div>
   );
 }
