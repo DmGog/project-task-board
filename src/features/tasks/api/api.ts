@@ -28,7 +28,16 @@ export const tasksApi = baseApi.injectEndpoints({
       }),
       getTasks: builder.query<GetTasksResponse, string>({
         providesTags: ['tasks'],
-        query: arg => `/todo-lists/${arg}/tasks`,
+        query: arg => {
+          return {
+            url: `/todo-lists/${arg}/tasks`,
+            params: {
+              count: 100,
+              page: 1,
+              order: 'asc',
+            },
+          };
+        },
       }),
       updateTask: builder.mutation<updateTodolistResponse, UpdateTaskArgs>({
         invalidatesTags: ['tasks'],

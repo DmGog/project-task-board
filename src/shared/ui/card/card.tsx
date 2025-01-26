@@ -5,6 +5,7 @@ import SmileIcon from '@/shared/assets/icons/smile.svg';
 import UpsideIcon from '@/shared/assets/icons/upside-down.svg';
 import GhostIcon from '@/shared/assets/icons/ghost.svg';
 import { Button } from '@/shared';
+import { Scroll } from '@/shared/ui/scroll';
 
 type Icon = 'happy' | 'smile' | 'upside' | 'ghost';
 
@@ -33,7 +34,9 @@ export const Card = ({ title, buttonVariant, iconVariant, children, onClick }: P
         {buttonVariant === 'iconButton' && <Button onlyIcon variant="outlined" iconVariant="delete" onClick={onClick} />}
         {buttonVariant === 'textButton' && <Button variant="outlined" onClick={onClick} title="+ Добавить" />}
       </div>
-      <ul className={s.containerCardChild}>{children}</ul>
+      <Scroll>
+        <ul className={s.containerCardChild}>{children}</ul>
+      </Scroll>
     </div>
   );
 };
