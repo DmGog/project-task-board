@@ -1,29 +1,36 @@
 import { Button, formatDate } from '@/shared';
 import s from './task.module.scss';
+import { TaskResponse } from '@/features';
+import { useDraggable } from '@dnd-kit/core';
 
 type Props = {
-  title: string;
-  startDate: string;
-  endDate: string;
-  status: number;
-  onClick?: () => void;
+  task: TaskResponse;
 };
 
-export const Task = ({ endDate, startDate = 'дата не указана', status = 0, title, onClick }: Props) => {
+export const Task = ({ task }: Props) => {
+  const { title, startDate, status, deadline, id } = task;
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
+
+  const style = transform
+    ? {
+        transform: `translate(${transform.x}px, ${transform.y}px)`,
+      }
+    : undefined;
+
   return (
-    <li className={s.task}>
+    <div className={s.task} style={style} ref={setNodeRef} {...attributes} {...listeners}>
       <div className={s.infoWrapper}>
         <span>
           Начало: <span className={s.descriptionText}>{formatDate(startDate)}</span>
         </span>
         <span>
-          Окончание: <span className={s.descriptionText}>{formatDate(endDate)}</span>
+          Окончание: <span className={s.descriptionText}>{formatDate(deadline)}</span>
         </span>
         <span>
           Описание: <span className={s.descriptionText}>{title}</span>
         </span>
       </div>
-      {status === 0 && <Button onlyIcon iconVariant="edit" onClick={onClick} />}
-    </li>
+      {status === 0 && <Button onlyIcon iconVariant="edit" />}
+    </div>
   );
 };

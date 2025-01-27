@@ -1,4 +1,6 @@
 .task {
+  cursor: grab;
+
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -9,9 +11,13 @@
 
   background-color: var(--light-overlay-10);
   border-radius: 4px;
+
+  &:active {
+    cursor: grabbing;
+  }
 }
 
-.infoWrapper{
+.infoWrapper {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -20,7 +26,7 @@
   width: 100%;
 }
 
-.descriptionText{
+.descriptionText {
   padding-left: 16px;
   font-weight: var(--font-weight-bold);
   line-height: 157%;
