@@ -25,7 +25,7 @@ export const TodolistBoard = () => {
   const { id } = useParams();
   const { data: tasks } = useGetTasksQuery(id ?? '');
   const [updateTask] = useUpdateTaskMutation();
-  if (!tasks) return;
+
   const handleDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
 
@@ -36,7 +36,7 @@ export const TodolistBoard = () => {
 
     console.log(taskId, newStatus);
 
-    const task = tasks.find(t => t.id === taskId);
+    const task = tasks?.find(t => t.id === taskId);
     if (!task) return;
     await updateTask({
       id,
@@ -53,7 +53,14 @@ export const TodolistBoard = () => {
       <div className={s.wrapperColumns}>
         <DndContext onDragEnd={handleDragEnd}>
           {COLUMNS.map(column => {
-            return <Column column={column} tasks={tasks.filter(task => task.status === column.id)} key={column.id} todolistId={id ?? ''} />;
+            return (
+              <Column
+                column={column}
+                tasks={tasks?.filter(task => task.status === column.id) || []}
+                key={column.id}
+                todolistId={id ?? ''}
+              />
+            );
           })}
         </DndContext>
       </div>

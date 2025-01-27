@@ -62,7 +62,7 @@ export const Column = ({ column, tasks, todolistId }: Props) => {
   };
 
   const handleDeleteTasks = async (id: string) => {
-    const tasksToDelete = tasks.filter(task => task.status === 3);
+    const tasksToDelete = tasks?.filter(task => task.status === 3);
     for (const task of tasksToDelete) {
       try {
         await deleteTask({ id, taskId: task.id });
@@ -100,7 +100,7 @@ export const Column = ({ column, tasks, todolistId }: Props) => {
             setFormData={setFormData}
           />
         )}
-        {tasks.map(t => {
+        {tasks?.map(t => {
           return <Task key={t.id} task={t} />;
         })}
       </div>
