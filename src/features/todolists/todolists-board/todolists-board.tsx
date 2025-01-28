@@ -1,11 +1,8 @@
-import { Card, Typography } from 'antd';
 import { useGetTodoListsQuery } from '@/features';
 import { formatDate } from '@/shared';
 import s from './todolists-board.module.scss';
 import { PATH } from '@/app';
 import { useNavigate } from 'react-router';
-
-const { Title, Text } = Typography;
 
 export const TodolistsBoard = () => {
   const { data: todolists } = useGetTodoListsQuery();
@@ -15,16 +12,24 @@ export const TodolistsBoard = () => {
   };
 
   return (
-    <Card title="Мои проекты" className={s.cardWrapper}>
-      {todolists?.map(todolist => (
-        <Card.Grid key={todolist.id} className={s.gridStyle} onClick={() => handleNavigate(todolist.id)}>
-          <Title>{todolist.title}</Title>
-          <Text>Начало проекта: </Text>
-          <Text>{formatDate(todolist.addedDate)}</Text>
-          <Text>Окончание проекта: </Text>
-          <Text>{formatDate(todolist.endDate) === '' ? 'дата не указана' : formatDate(todolist.endDate)}</Text>
-        </Card.Grid>
-      ))}
-    </Card>
+    <div className={s.container}>
+      <h2 className={s.titleContainer}>Мои проекты</h2>
+      <hr className={s.line} />
+      <div className={s.todolistsWrapper}>
+        {todolists?.map(todolist => (
+          <div key={todolist.id} className={s.todolistCard} onClick={() => handleNavigate(todolist.id)}>
+            <h2 className={s.todoTitle}>{todolist.title}</h2>
+            <div className={s.dataInfo}>
+              <span>
+                Начало проекта: <span>{formatDate(todolist.addedDate)}</span>
+              </span>
+              <span>
+                Окончание проекта: <span>{formatDate(todolist.endDate) === '' ? 'дата не указана' : formatDate(todolist.endDate)}</span>
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };

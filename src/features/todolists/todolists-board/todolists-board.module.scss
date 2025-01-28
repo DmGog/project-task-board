@@ -1,18 +1,73 @@
-.cardWrapper {
+.container {
   width: 100%;
   max-width: 1280px;
-  background-color: var(--light-overlay-80);
+  padding: 10px 20px 20px;
+
+  background-color: var(--background-black-70);
+  border-radius: 14px;
+
+  .titleContainer {
+    font-size: var(--font-size-xl);
+    line-height: 180%;
+    color: var(--color-text-bold);
+
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 10px;
+    background-color: var(--light-overlay-30);
+  }
+
+  &:hover {
+    box-shadow: 0 4px 20px var(--light-overlay-50);
+  }
 }
 
-.gridStyle {
+.todolistsWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.todolistCard {
   cursor: pointer;
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
-  width: 25%;
+  width: 100%;
+  max-width: 320px;
+  padding: 10px;
 
   text-align: center;
 
-  background-color: var(--light-overlay-30);
+
+  background-color: var(--light-overlay-10);
+  border: 1px solid var(--light-overlay-30);
+  border-radius: 4px;
+
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: var(--light-overlay-20);
+    box-shadow: 0 4px 20px var(--light-overlay-50);
+  }
+
+  .todoTitle {
+    padding-top: 10px;
+    font-size: var(--font-size-l);
+    line-height: 160%;
+    color: var(--color-text-bold);
+  }
+
+  .dataInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

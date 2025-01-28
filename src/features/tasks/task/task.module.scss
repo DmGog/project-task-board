@@ -12,8 +12,15 @@
   background-color: var(--light-overlay-10);
   border-radius: 4px;
 
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: var(--light-overlay-20);
+  }
+
   &:active {
     cursor: grabbing;
+    box-shadow: 0 4px 10px var(--light-overlay-30);
   }
 }
 
